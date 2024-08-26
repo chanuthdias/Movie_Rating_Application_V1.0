@@ -2,6 +2,8 @@ import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
+import 'Widgets/MovieSlider.dart';
+import 'Widgets/TrendingSlider.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -32,34 +34,23 @@ class _HomeScreenState extends State<HomeScreen> {
                 'Trending Movies',
                 style: GoogleFonts.aBeeZee(fontSize: 25),
               ),
-              const SizedBox(
-                height: 8,
+              const SizedBox(height: 32),
+              const TrendingSlider(),
+              const SizedBox(height: 32),
+              Text(
+                'Top Rated Movies',
+                style: GoogleFonts.aBeeZee(fontSize: 25),
               ),
-              SizedBox(
-                width: double.infinity,
-                child: CarouselSlider.builder(
-                  itemCount: 10,
-                  options: CarouselOptions(
-                    height: 330,
-                    autoPlay: true,
-                    viewportFraction: 0.55,
-                    enlargeCenterPage: true,
-                    pageSnapping: true,
-                    autoPlayCurve: Curves.fastOutSlowIn,
-                    autoPlayAnimationDuration: const Duration(seconds: 1),
-                  ),
-                  itemBuilder: (context, itemIndex, PageViewIndex) {
-                    return ClipRRect(
-                      borderRadius: BorderRadius.circular(12),
-                      child: Container(
-                        height: 300,
-                        width: 200,
-                        color: Colors.amber,
-                      ),
-                    );
-                  },
-                ),
-              )
+              const SizedBox(height: 32),
+              const MoviesSlider(),
+              const SizedBox(height: 32),
+              Text(
+                'Upcoming Movies',
+                style: GoogleFonts.aBeeZee(fontSize: 25),
+              ),
+              const SizedBox(height: 32),
+              const MoviesSlider(),
+              const SizedBox(height: 32),
             ],
           ),
         ),
@@ -67,3 +58,7 @@ class _HomeScreenState extends State<HomeScreen> {
     );
   }
 }
+
+
+
+
