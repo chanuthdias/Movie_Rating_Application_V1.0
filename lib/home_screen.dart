@@ -16,6 +16,7 @@ class _HomeScreenState extends State<HomeScreen> {
   late Future<List<Movie>> trendingMovies;
   late Future<List<Movie>> topRatedMovies;
   late Future<List<Movie>> upcomingMovies;
+  TextEditingController searchController = TextEditingController();
 
   @override
   void initState() {
@@ -42,6 +43,21 @@ class _HomeScreenState extends State<HomeScreen> {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
+              TextField(
+                controller: searchController,
+                decoration: InputDecoration(
+                  hintText: 'Search for movies...',
+                  prefixIcon: const Icon(Icons.search),
+                  border: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(8.0),
+                    borderSide: const BorderSide(color: Colors.grey),
+                  ),
+                ),
+                onChanged: (value) {
+                  // Handle search logic here
+                },
+              ),
+              const SizedBox(height: 32),
               Text(
                 'Trending Movies',
                 style: GoogleFonts.aBeeZee(fontSize: 25),
